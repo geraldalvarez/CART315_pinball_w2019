@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Flipper : MonoBehaviour {
 
+    public Score theScore;
 	public string button = "LeftFlipper";
 
 	// Use this for initialization
@@ -16,6 +17,7 @@ public class Flipper : MonoBehaviour {
 	{
 		if (Input.GetButton (button)) {
 			this.GetComponent<HingeJoint> ().useMotor = true;
+            theScore.ResetMultiplier();
 		} else {
 			this.GetComponent<HingeJoint> ().useMotor = false;
 		}
