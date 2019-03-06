@@ -7,9 +7,9 @@ public class PlaneTilter : MonoBehaviour
 
     //currently not working on the pinball machine
 
-    private float maxTilt = 10;
-    private float minTilt = -10;
-    private float rotateSpeed = 1f;
+    private float maxTilt = 15;
+    private float minTilt = -15;
+    private float rotateSpeed = 0.5f;
 
     private float xAxisValue;
     private float zAxisValue;
@@ -17,32 +17,33 @@ public class PlaneTilter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //tilt the plane at the beginning
+        xAxisValue = 15f;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         //Input
-        if (Input.GetButton("aKey")) 
+        if (Input.GetButton("dKey")) 
         {
             if(zAxisValue <= maxTilt)
                 zAxisValue += rotateSpeed;
         }
 
-        if (Input.GetButton("wKey"))
+        if (Input.GetButton("sKey"))
         {
             if (xAxisValue <= maxTilt)
                 xAxisValue += rotateSpeed;
         }
 
-        if (Input.GetButton("sKey"))
+        if (Input.GetButton("wKey"))
         {
             if (xAxisValue >= minTilt)
                 xAxisValue -= rotateSpeed;
         }
 
-        if (Input.GetButton("dKey"))
+        if (Input.GetButton("aKey"))
         {
             if (zAxisValue >= minTilt)
                 zAxisValue -= rotateSpeed;
